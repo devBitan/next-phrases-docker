@@ -46,20 +46,20 @@ phrase-generator/
 ### Clone this repository:
 
 ```bash
-git clone https://github.com/JuanAmezquitaAgredo/Docker-Phrase-Generator
-cd Docker-Phrase-Generator
+git clone https://github.com/devBitan/next-phrases-docker
+cd next-phrases-docker
 ```
 
 ### Build the Docker image:
 
 ```bash
-docker build -t Docker-Phrase-Generator .
+docker build -t next-phrases-docker .
 ```
 
 ### Start the container in development mode:
 
 ```bash
-docker run -p 3000:3000 Docker-Phrase-Generator
+docker run -p 3000:3000 next-phrases-docker
 ```
 
 ### Access the application:
@@ -84,7 +84,7 @@ http://localhost:3000
 To build the Docker image:
 
 ```bash
-docker build -t Docker-Phrase-Generator .
+docker build -t next-phrases-docker .
 ```
 
 ### Run the Application
@@ -92,7 +92,7 @@ docker build -t Docker-Phrase-Generator .
 Run the application interactively:
 
 ```bash
-docker run -p 3000:3000 Docker-Phrase-Generator
+docker run -p 3000:3000 next-phrases-docker
 ```
 
 ### Stop and Remove Containers
