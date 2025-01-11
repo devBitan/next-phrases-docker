@@ -1,29 +1,38 @@
-    import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-    const subjects = ["The dog", "The turtle", "My friend", "Sebastian "]
-    const predicates = ["runs fast", "is very wise", "loves coding", "sings poorly"]
+// Arrays de sujetos y predicados para generar frases aleatorias.
+const subjects = ["The dog", "The turtle", "My friend", "Sebastian", "Bitan", "Abogagnster", "esthebitan"];
+const predicates = ["runs fast", "is very wise", "loves coding", "sings poorly", "hates coding", "loves to code", "runs slowly"];
 
-    export async function GET() {
-        const subject = randomValue(subjects);
-        const predicate = randomValue(predicates)
+// Controlador para manejar solicitudes GET.
+export async function GET() {
+    // Selecciona valores aleatorios de los arrays.
+    const subject = randomValue(subjects);
+    const predicate = randomValue(predicates);
 
-        let finalSubject = subject
-        let finalPredicate = predicate
+    // Variables para almacenar el sujeto y predicado finales.
+    let finalSubject = subject;
+    let finalPredicate = predicate;
 
-        if(subject.length > 8) {
-            finalSubject = `${subject.trim()} the intelligent`
-        }
-
-        if(predicate.includes('coding')) {
-            finalPredicate = `${predicate}!`
-        }
-
-        const completeSentence = `${finalSubject} ${finalPredicate}`
-        return NextResponse.json({ completeSentence })
-        
+    // Agrega un calificativo si el sujeto tiene más de 8 caracteres.
+    if (subject.length > 8) {
+        finalSubject = `${subject.trim()} the intelligent`;
     }
 
-    function randomValue(arrray: string[] ) {
-        const randomItem = Math.floor(Math.random() * arrray.length)
-        return arrray[randomItem]
+    // Añade un énfasis si el predicado contiene la palabra 'coding'.
+    if (predicate.includes('coding')) {
+        finalPredicate = `${predicate}!`;
     }
+
+    // Crea la frase completa combinando el sujeto y predicado finales.
+    const completeSentence = `${finalSubject} ${finalPredicate}`;
+
+    // Retorna la frase como respuesta JSON.
+    return NextResponse.json({ completeSentence });
+}
+
+// Función para seleccionar un valor aleatorio de un array.
+function randomValue(array: string[]) {
+    const randomItem = Math.floor(Math.random() * array.length); // Genera un índice aleatorio.
+    return array[randomItem]; // Retorna el elemento correspondiente.
+}
